@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zone cachée</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: #333;
+        }
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 1em;
+            text-align: center;
+        }
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1em;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .button {
+            background-color: #007BFF;
+            color: white;
+            padding: 0.5em 1em;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .easter-egg {
+            display: none;
+            margin-top: 20px;
+            color: #d9534f;
+        }
+        .hint {
+            cursor: pointer;
+            color: #007BFF;
+            text-decoration: underline;
+        }
+        #reward {
+            display: none;
+            margin-top: 20px;
+        }
+        #reward p {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Zone cachée</h1>
+        <p>Ne divulguez aucune information sur ce niveau caché</p>
+    </header>
+    <main>
+        <h2></h2>
+        <p> </p>
+        <a href="" class=""></a>
+
+        <div class="easter-egg" id="easter-egg">
+            <p>Bravo, vous avez découvert l'Easter Egg ! Voici votre énigme :</p>
+            <p><strong>"Vous pensiez qu'il n'y avait que 19 épreuves, pourtant une 20eme s'offre à vous... 9 n'est pas anodin, elle apparait plusieurs fois aux plus malins qui osent s'aventurer au delà des confins... 
+              Observez plus près, la réponse est bleutée, dans le creux de votre main, Expedition est votre chemin"</strong></p>
+            <p>Entrez votre réponse ci-dessous en MAJUSCULES :</p>
+            <input type="text" id="answer" placeholder="Votre réponse">
+            <button onclick="checkAnswer()">Valider</button>
+        </div>
+
+        <div id="reward">
+            <p>Cette étoile vous rapporte 100 points supplémentaires à ajouter à votre score !<br>
+            Dites la phrase suivante : "J'ai trouvé l'étoile qui brille"</p>
+        </div>
+
+        <p class="hint" onclick="revealEasterEgg()" id="hint">Cliquez ici si vous êtes curieux...</p>
+    </main>
+    <footer>
+        <p>&copy; 2024 Expedition Marseille. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function revealEasterEgg() {
+            document.getElementById('easter-egg').style.display = 'block';
+            document.getElementById('hint').style.display = 'none';
+        }
+
+        function checkAnswer() {
+            const answer = document.getElementById('answer').value.trim().toUpperCase();
+            if (answer === "ETOILE") {
+                document.getElementById('reward').style.display = 'block';
+                document.body.style.backgroundColor = 'yellow';
+            } else {
+                alert("Mauvaise réponse ! Réessayez.");
+            }
+        }
+    </script>
+</body>
+</html>
